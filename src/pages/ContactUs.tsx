@@ -1,5 +1,12 @@
+import Header from "../components/Header";
+
 function ContactUs() {
-  return <div>ContactUs</div>;
+  return (
+    <div>
+      <Header />
+      ContactUs
+    </div>
+  );
 }
 
 export default ContactUs;
