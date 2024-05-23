@@ -2,7 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 
 function AuthLayout() {
   return (
-    <section className="p-10 flex flex-col items-center justify-center">
+    <section className="flex flex-col items-center justify-center p-5 md:p-10">
       <Link to="/">
         <img
           src="/images/logos/logo-dark.svg"
