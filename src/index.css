@@ -34,4 +34,10 @@
 
 body {
   font-family: var(--ff-primary);
+  min-height: 100svh;
 }
+/* 
+.stroke-property {
+  text-stroke: 2px rgb(254, 235, 235);
+  -webkit-text-stroke: 2px white;
+} */
