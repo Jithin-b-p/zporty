@@ -65,41 +65,49 @@ function SigninForm() {
           </Button>
         </form>
       </div>
-      <div className="sticky w-full h-[1px] mt-10 bg-slate-300">
-        <span className="absolute block text-sm -translate-x-1/2 bg-white text-slate-500 -top-2 w-max left-1/2 right-1/2">
+      <div className="sticky w-full h-[1px] mt-10 bg-slate-300 rounded-full">
+        <span className="absolute block p-2 text-sm -translate-x-1/2 bg-white text-slate-500 -top-4 w-max left-1/2 right-1/2">
           New to zporty?
         </span>
+      </div>
 
-        <Link to="/auth/signup">
-          <Button
-            sx={{
-              width: "100%",
-              marginBlockStart: "2rem",
-              marginBlockEnd: "3rem",
-              textTransform: "none",
-              borderColor: "rgb(185 28 28)",
-              color: "rgb(127 29 29)",
-              fontWeight: "700",
-            }}
-            variant="outlined"
-          >
-            Sign up for free
-          </Button>
-        </Link>
+      <Link to="/auth/signup">
         <Button
           sx={{
             width: "100%",
             marginBlockStart: "2rem",
-            marginBlockEnd: "3rem",
+            marginBlockEnd: "0.3rem",
             textTransform: "none",
+            borderColor: "rgb(185 28 28)",
+            color: "rgb(127 29 29)",
             fontWeight: "700",
           }}
           variant="outlined"
         >
-          <img src="/images/logos/google_logo.svg" width={20} height={20} />{" "}
-          <span className="block ml-auto">Sign in with Google</span>
+          Sign up for free
         </Button>
+      </Link>
+
+      <div className="sticky w-full h-[0.5px] mt-10 bg-slate-300 rounded-full">
+        <span className="absolute block p-2 text-sm -translate-x-1/2 bg-white text-slate-500 -top-4 w-max left-1/2 right-1/2">
+          Or
+        </span>
       </div>
+      <Button
+        sx={{
+          width: "100%",
+          marginBlockStart: "2rem",
+          marginBlockEnd: "3rem",
+          textTransform: "none",
+          fontWeight: "700",
+          display: "flex",
+          gap: "1rem",
+        }}
+        variant="outlined"
+      >
+        <img src="/images/logos/google_logo.svg" width={20} height={20} />
+        <span className="block">Sign in with Google</span>
+      </Button>
     </div>
   );
 }

@@ -1,5 +1,112 @@
+import { z } from "zod";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { SignupSchema } from "./SignupForm.schema";
+import { Button, TextField } from "@mui/material";
+import { Link } from "react-router-dom";
+
+type SignupFormType = z.infer<typeof SignupSchema>;
+
 function SignupForm() {
-  return <div>SignupForm</div>;
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<SignupFormType>({ resolver: zodResolver(SignupSchema) });
+
+  const onSubmit: SubmitHandler<SignupFormType> = (data) => {
+    console.log(data);
+    reset();
+  };
+
+  return (
+    <div>
+      <div className="border-[0.5px] border-gray-400 rounded-md p-5 md:p-10 mt-8">
+        <h1 className="text-xl font-bold text-center">Sign up</h1>
+        <span className="block mt-4 text-sm text-center md:text-base">
+          Create Account
+        </span>
+        <form
+          className="flex flex-col gap-4 mt-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="flex gap-3">
+            <TextField
+              id="firstname"
+              type="text"
+              {...register("firstname")}
+              label="Firstname *"
+              variant="outlined"
+              error={!!errors.firstname}
+              helperText={errors.firstname?.message}
+            />
+            <TextField
+              id="lastname"
+              type="text"
+              {...register("lastname")}
+              label="Lastname *"
+              variant="outlined"
+              error={!!errors.lastname}
+              helperText={errors.lastname?.message}
+            />
+          </div>
+          <TextField
+            id="email"
+            type="text"
+            {...register("email")}
+            label="Email *"
+            variant="outlined"
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
+
+          <TextField
+            id="password"
+            type="password"
+            {...register("password")}
+            label="Password *"
+            variant="outlined"
+            error={!!errors.password}
+            helperText={errors.password?.message}
+          />
+          <Button
+            sx={{
+              backgroundColor: "rgb(185 28 28)",
+              fontWeight: "700",
+            }}
+            type="submit"
+            variant="contained"
+          >
+            Sign up
+          </Button>
+        </form>
+      </div>
+      <div className="sticky w-full h-[1px] mt-10 bg-slate-300 rounded-full">
+        <span className="absolute block p-2 text-sm -translate-x-1/2 bg-white text-slate-500 -top-4 w-max left-1/2 right-1/2">
+          Already have an account?
+        </span>
+      </div>
+
+      <Link to="/auth/signin">
+        <Button
+          sx={{
+            width: "100%",
+            marginBlockStart: "2rem",
+            marginBlockEnd: "0.3rem",
+            textTransform: "none",
+            borderColor: "rgb(185 28 28)",
+            color: "rgb(127 29 29)",
+            fontWeight: "700",
+          }}
+          variant="outlined"
+        >
+          Sign in
+        </Button>
+      </Link>
+    </div>
+  );
 }
 
 export default SignupForm;
