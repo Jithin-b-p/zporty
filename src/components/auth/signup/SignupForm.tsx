@@ -3,8 +3,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { SignupSchema } from "./SignupForm.schema";
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { Link } from "react-router-dom";
+import PrimaryButton from "../../common/PrimaryButton";
+import SecondaryButton from "../../common/SecondaryButton";
 
 type SignupFormType = z.infer<typeof SignupSchema>;
 
@@ -71,16 +73,7 @@ function SignupForm() {
             error={!!errors.password}
             helperText={errors.password?.message}
           />
-          <Button
-            sx={{
-              backgroundColor: "rgb(185 28 28)",
-              fontWeight: "700",
-            }}
-            type="submit"
-            variant="contained"
-          >
-            Sign up
-          </Button>
+          <PrimaryButton content="Sign up" />
         </form>
       </div>
       <div className="sticky w-full h-[1px] mt-10 bg-slate-300 rounded-full">
@@ -90,20 +83,7 @@ function SignupForm() {
       </div>
 
       <Link to="/auth/signin">
-        <Button
-          sx={{
-            width: "100%",
-            marginBlockStart: "2rem",
-            marginBlockEnd: "0.3rem",
-            textTransform: "none",
-            borderColor: "rgb(185 28 28)",
-            color: "rgb(127 29 29)",
-            fontWeight: "700",
-          }}
-          variant="outlined"
-        >
-          Sign in
-        </Button>
+        <SecondaryButton content="Sign in" />
       </Link>
     </div>
   );
