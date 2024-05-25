@@ -54,10 +54,18 @@ function SigninForm() {
             helperText={errors.password?.message}
           />
           <Button
-            sx={{
-              backgroundColor: "rgb(185 28 28)",
-              fontWeight: "700",
-            }}
+            className="bg-red-900"
+            sx={[
+              {
+                "&:hover": {
+                  backgroundColor: " rgb(127 29 29)",
+                },
+              },
+              {
+                backgroundColor: "rgb(185 28 28)",
+                fontWeight: "700",
+              },
+            ]}
             type="submit"
             variant="contained"
           >
@@ -73,15 +81,23 @@ function SigninForm() {
 
       <Link to="/auth/signup">
         <Button
-          sx={{
-            width: "100%",
-            marginBlockStart: "2rem",
-            marginBlockEnd: "0.3rem",
-            textTransform: "none",
-            borderColor: "rgb(185 28 28)",
-            color: "rgb(127 29 29)",
-            fontWeight: "700",
-          }}
+          sx={[
+            {
+              width: "100%",
+              marginBlockStart: "2rem",
+              marginBlockEnd: "0.3rem",
+              textTransform: "none",
+              borderColor: "rgb(185 28 28)",
+              color: "rgb(127 29 29)",
+              fontWeight: "700",
+            },
+            {
+              "&:hover": {
+                backgroundColor: "rgb(185 28 28 / 0.05)",
+                borderColor: "rgb(127 29 29)",
+              },
+            },
+          ]}
           variant="outlined"
         >
           Sign up for free
